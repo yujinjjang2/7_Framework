@@ -1,0 +1,9 @@
+package edu.kh.project.member.model.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository // Persistence Layer, 영속성 관련 클래스 // 영속성 == 영원히 지속되는 성질
+			// (DB관련 클래스) + Bean(== Spring 등록
+public class MemberDAO {
+
+}

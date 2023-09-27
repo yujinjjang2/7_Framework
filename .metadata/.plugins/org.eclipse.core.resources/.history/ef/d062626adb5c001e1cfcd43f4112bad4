@@ -1,0 +1,17 @@
+package edu.kh.project.member.model.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository // Persistence Layer, 영속성 관련 클래스 // 영속성 == 영원히 지속되는 성질
+			// (DB관련 클래스) + Bean(== Spring 객체화) 등록
+public class MemberDAO { // IOC == 제어의 역전
+	// DAO는 DB랑 연결하기 위한 Connection이 공통적으로 필요하다
+	// + Mybatis 영속성 프레임워크를 이용하려면 Connection을 이용해서 만들어진 객체
+	// SqlSessionTemplate을 사용
+	
+	
+	@Autowired
+	private sqlSessionTemplate sqlSession;
+
+}
