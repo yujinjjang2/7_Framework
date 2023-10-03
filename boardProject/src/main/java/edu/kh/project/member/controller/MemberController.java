@@ -130,8 +130,7 @@ public class MemberController {
 	
 	@PostMapping("/login")
 	public String login(Member inputMember, Model model) {
-		
-		
+
 		// 로그인 서비스 호출
 		Member loginMember = service.login(inputMember);
 		
