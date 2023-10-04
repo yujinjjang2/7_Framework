@@ -50,7 +50,10 @@
 	
 		                    <fieldset class="id-pw-area">
 		                        <section>
-		                            <input type="text" name="memberEmail" placeholder="이메일">
+		                            <input type="text" name="memberEmail" placeholder="이메일"
+		                            	autocomplete="off"
+		                            	value="${cookie.saveId.value}"
+		                            	>
 		                            <input type="password" name="memberPw" placeholder="비밀번호">
 		                        </section>
 		
@@ -60,7 +63,15 @@
 		                    </fieldset>
 		
 		                    <label>
-		                        <input type="checkbox" name="saveId"> 아이디 저장
+		                    
+		                    	<c:if test="${not empty cookie.saveId.value}">
+		                    		<%-- 쿠키에 저장된 이메일이 있으면 변수 선언 : save --%>
+		                    		
+		                    		<c:set var="save" value="checked"/>
+		                    	</c:if>
+		                    	
+		                        <input type="checkbox" name="saveId" ${save}> 아이디 저장
+		                        
 		                    </label>
 		
 		                    <!-- 회원가입/ Id/pw 찾기 영역 -->
