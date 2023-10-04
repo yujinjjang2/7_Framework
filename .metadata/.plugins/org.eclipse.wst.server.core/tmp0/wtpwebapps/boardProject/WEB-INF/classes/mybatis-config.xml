@@ -24,6 +24,9 @@
 	<!-- mapper파일(SQL 작성되는파일) 위치 등록 부분 -->
 	<mappers>
 		<mapper resource="/mappers/member-mapper.xml"/>
+		<!-- 추후 board-mapper를 사용하고 싶다면 추가해야 함!
+		<mapper resource="/mappers/board-mapper.xml"/>
+		 -->
 	</mappers>
 
 

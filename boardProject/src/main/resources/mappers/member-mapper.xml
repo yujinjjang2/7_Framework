@@ -27,6 +27,8 @@
 	 
 	<resultMap type="Member" id="member_rm">
 	
+	<!-- property가 java, column이 db라고 생각하면 됨. -->
+	
 		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
 		<id property="memberNo" column="MEMBER_NO" />
 
@@ -66,10 +68,10 @@
   	<!-- 
   		** 마이바티스에서 전달 받은 값을 SQL에 작성하는 방법 **
   		
-  		#{변수명|필드명} : PreparedStatement
+  		#{변수명|필드명} : PreparedStatement -> placeholder 대체하여 사용
   						 : SQL에 값 대입 시 양쪽에 '' 붙여서 대입
   		
-  		${변수명|필드명} : Statement
+  		${변수명|필드명} : Statement -> '숫자' 쓸 때 많이 사용
   						 : SQL에 값 대입 시 양쪽에 아무것도 붙이지 않음
  						 
 		사용 예시)
@@ -81,7 +83,13 @@
   								 MEMBER_EMAIL = 'user01'
   	 -->
 	
-	
+	<!-- 
+		<select></select>
+		<insert></insert>
+		<update></update>
+		<delete></delete>
+		사용 가능한 속성도 조금씩 다름
+	 -->
 	<select id="login" parameterType="Member" resultMap="member_rm">
   		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_PW,
 			MEMBER_TEL, MEMBER_ADDR, PROFILE_IMG, AUTHORITY,
@@ -89,6 +97,7 @@
 		FROM "MEMBER"
 		WHERE MEMBER_DEL_FL = 'N'
 		AND MEMBER_EMAIL = #{memberEmail}
+		<!-- AND MEMBER_PW = #{memberPw} -->
   	</select>
 	
 </mapper>

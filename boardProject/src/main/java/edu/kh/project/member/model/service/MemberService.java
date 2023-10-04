@@ -6,7 +6,7 @@ import edu.kh.project.member.model.dto.Member;
 
 // 1. 프로젝트에 '규칙성'을 부여하기 위해서 == 모든 클래스가 같은 형태를 띔(협업 위함)
 
-// 2. 클래스간의 결합도를 약화 시키기 위해서 (객체 지향적 설계) == MemberService service = new MemberServiceImpl();
+// 2. 클래스간의 '결합도를 약화' 시키기 위해서 (객체 지향적 설계) == MemberService service = new MemberServiceImpl();
 // -> 유지보수성 향상								   MemberService service = new MemberServiceImpl2();
 //												   MemberService service = new MemberServiceImpl3();
 
