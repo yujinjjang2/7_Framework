@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -273,6 +274,43 @@ public class MemberController {
 		status.setComplete();
 		
 		return "redirect:/";
+	}
+	
+	
+	
+	/*
+	 *  스프링 예외 처리 방법(3종류, 중복 사용 가능)
+	 * 
+	 *  1 순위 : 메서드 단위로 처리
+	 * 		    -> try - catch / throws
+	 * 
+	 * 
+	 *  2 순위 : 클래스 단위로 처리
+	 * 		    -> @ExceptionHandler
+	 * 
+	 * 
+	 *  3 순위 : 프로그램 단위(전역) 처리
+	 *          -> @ControllerAdvice
+	 * 
+	 */
+	
+	// 현재 클래스에서 발생하는 모든 예외를 모아서 처리
+	//@ExceptionHandler(Exception.class /* 예외처리 하고 싶은 것 넣어주기 */)
+	public String exceptionHandler(Exception e, Model model) {
+		
+		// Exception e : 예외 정보를 담고있는 객체
+		// Model model : 데이터 전달용 객체 (request scope 기본)
+		
+		e.printStackTrace(); // 예외 내용/발생 메서드 확인
+		
+		// request 범위? 현재페이지, 위임받은 페이지
+		model.addAttribute("e", e); // 예외 발생 시 forward되는 페이지로 e를 전달함. (request scope도 가능하다)
+		
+		
+		// 누구에 의해서?
+		// View Resolver의 prefix, suffix를 붙여 JSP 경로를 만든것
+		// return "/WEB-INF/views/common/error.jsp";
+		return "common/error";
 	}
 	
 }

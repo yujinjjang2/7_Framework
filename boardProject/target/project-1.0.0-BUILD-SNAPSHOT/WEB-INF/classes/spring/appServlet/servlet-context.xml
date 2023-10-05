@@ -23,12 +23,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	
-	<!-- 
-		base-package 이하에 작성된 @Component 와
-		자식 어노테이션 @Controller, @Service, @Repository 이 붙어있는
-		클래스를 찾아서 Bean으로 등록
-	 -->
 	<context:component-scan base-package="edu.kh.project" />
 	
 	
