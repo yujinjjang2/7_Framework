@@ -277,6 +277,14 @@ public class MemberController {
 	}
 	
 	
+	// 회원 가입 페이지 이동
+	@GetMapping("/signUp")
+	public String signUp() {
+		
+		return "member/signUp";
+	}
+	
+	
 	
 	/*
 	 *  스프링 예외 처리 방법(3종류, 중복 사용 가능)
