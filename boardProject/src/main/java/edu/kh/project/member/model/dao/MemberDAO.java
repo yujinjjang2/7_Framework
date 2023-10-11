@@ -33,4 +33,15 @@ public class MemberDAO { // IOC == 제어의 역전
 		return sqlSession.selectOne("memberMapper.login", inputMember);
 	}
 
+
+
+	/** 회원가입 DAO
+	 * @param inputMember
+	 * @return result
+	 */
+	public int signUp(Member inputMember) {
+		
+		return sqlSession.insert("memberMapper.signUp", inputMember);
+	}
+
 }
