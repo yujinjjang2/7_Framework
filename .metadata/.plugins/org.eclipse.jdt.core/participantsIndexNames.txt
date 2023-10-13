@@ -7,3 +7,7 @@ C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1
 \boardProject\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\345301044.index
 \boardProject\src\main\java
+C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4054533176.index
+\semiProject\src\main\java
+C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2744418864.index
+\semiProject\src\main\java
