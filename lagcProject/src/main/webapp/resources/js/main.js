@@ -6,6 +6,13 @@ function travleImgDetail(imgNo)
 	alert(imgNo);
 	alert(imagePath.value);
 	alert(imageName.value);
+	
+	let obj = {};
+	obj.imageNo = imgNo;
+	obj.imagePath = imagePath.value;
+	obj.imageName = imageName.value;
+	
+	let aa = window.showModalDialog("aa.html", obj ,"dialogHeight:800px; dialogWidth:1000px");
 }
 
 function travleImgDel(imgNo)
