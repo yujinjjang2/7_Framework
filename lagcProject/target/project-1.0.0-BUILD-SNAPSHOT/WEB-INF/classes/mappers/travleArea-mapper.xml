@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="travleAreaMapper">
+	<!-- namespace : 해당 공간의 이름 지정 -->
+
+	<!-- mapper 파일 생성 시 아래 태그 반드시 삭제 -->
+	<!--   <cache-ref namespace=""/>   -->
+	
+	<!-- 작성예시 -->
+	<!-- <select id=""></select>  -->
+	<!-- <insert id=""></insert>  -->
+	
+	<!-- 
+		resultMap  
+		- SELECT 조회 결과(ResultSet) 컬럼명과
+		  컬럼 값을 옮겨 담을 DTO의 필드명이 같지 않을 때
+		  이를 매핑 시켜 SELECT시 자동으로 담기게하는 역할
+	 
+	 
+	 	-속성
+	 	type : 연결할 DTO (패키지명 + 클래스명 또는 별칭)
+	 	id : 만들어진 resultMap을 지칭할 식별명(이름)
+	 	
+	 	<id> 태그 : PK 역할 컬럼 - 필드 매핑
+	 	<result> 태그 : <id>제외 나머지
+	 -->
+	 
+	<resultMap type="TravleArea" id="travleArea_rm">
+	
+	<!-- property가 java, column이 db라고 생각하면 됨. -->
+	
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="imgNo" column="IMG_NO" />
+		
+		<!-- DB의 일반 컬럼들 -->
+		<result property="contentNo" column="CONTENT_NO" />
+		<result property="imagePath" column="IMG_PATH" />
+		<result property="imageRename" column="IMG_RENAME" />
+		<result property="imageName" column="IMG_NAME" />
+	</resultMap>
+	
+	<select id="selectTravleArea" parameterType="TravleArea" resultMap="travleArea_rm">
+		SELECT T1.IMG_NO, T1.CONTENT_NO , T1.IMG_PATH , T1.IMG_RENAME , T1.IMG_NAME
+		FROM 
+			CONTENT_IMG T1
+			INNER JOIN CONTENT T2 ON (T1.CONTENT_NO = T2.CONTENT_NO )
+			INNER JOIN LOCATION T3 ON (T2.AREA_CODE  = T3.AREA_CODE )
+		WHERE T3.AREA_CODE = #{area}
+  	</select>
+  	
+</mapper>

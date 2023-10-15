@@ -24,4 +24,22 @@ public class myPageDAO {
 	public int updateProfileImage(Member loginMember) {
 		return sqlSession.update("myPageMapper.updateProfileImage", loginMember);
 	}
+
+ 	/** 비밀번호 변경
+	 * @param loginMember
+	 * @return result
+	 */
+	public int changePwUpdate(Member loginMember) {
+		
+		return sqlSession.update("myPageMapper.changePwUpdate", loginMember);
+	}
+
+	/** 회원 탈퇴
+	 * @param loginMember
+	 * @return result
+	 */
+	public int memberDelete(Member loginMember) {
+		
+		return sqlSession.update("myPageMapper.memberDelete", loginMember);
+	}
 }

@@ -1,5 +1,7 @@
 package edu.kh.project.myPage;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -46,10 +49,68 @@ public class MyPageController {
 		return "myPage/myPage-changePw";
 	}
 	
+	// 비밀번호 변경
+	@PostMapping("/changePw")
+	public String changePwUpdate(@SessionAttribute("loginMember") Member loginMember,
+								String newPw,
+								RedirectAttributes ra,
+								SessionStatus status) {
+		
+		int result = service.changePwUpdate(loginMember, newPw);
+		
+		String message = null;
+		
+		if(result > 0) {
+			System.out.println("비밀번호 변경 성공");
+			
+			message = "비밀번호 변경 성공";
+			
+		} else {
+			System.out.println("비밀번호 변경 실패");
+			
+			message = "비밀번호 변경 실패";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		status.setComplete();
+		
+		return "redirect:/";
+	}
+	
 	// 탈퇴 페이지 이동
 	@GetMapping("/secession")
 	public String secession() {
 		return "myPage/myPage-secession";
+	}
+	
+	// 회원 탈퇴
+	@PostMapping("/memberDelete")
+	public String memberDelete(@SessionAttribute("loginMember") Member loginMember,
+								RedirectAttributes ra,
+								SessionStatus status) {
+		
+		int result = service.memberDelete(loginMember);
+		
+		String message = null;
+		
+		if(result > 0) {
+			System.out.println("회원 탈퇴 성공");
+			
+			message = "회원 탈퇴 성공";
+			
+		} else {
+			System.out.println("회원 탈퇴 실패");
+			
+			message = "회원 탈퇴 실패";
+			
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		status.setComplete();
+	    
+		return "redirect:/";
 	}
 	
 	
@@ -116,7 +177,7 @@ public class MyPageController {
 		
 		ra.addFlashAttribute("message", message);
 		
-		return "redirect:info"; // 상대경로 (절대경로로 작성하려면? /myPage/info)
+		return "redirect:info"; // 상대경로 (절대경로로 작성하려면? /myPage/myPage-info)
 	}
 	
 	

@@ -3,6 +3,7 @@ package edu.kh.project.myPage;
 import java.io.File;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,6 +17,10 @@ public class MypageServiceImpl implements MypageService{
 	@Autowired
 	private myPageDAO dao;
 	
+	@Autowired // bean으로 등록된 객체 중 타입이 일치하는 객체를 DI(의존성 주입)
+	private BCryptPasswordEncoder bcrypt;
+
+	// 내 정보 수정 서비스
 	@Transactional
 	@Override
 	public int updateInfo(Member updateMember) {
@@ -70,6 +75,24 @@ public class MypageServiceImpl implements MypageService{
 		
 		return result;
 		
+	}
+
+	// 비밀번호 변경
+	@Override
+	public int changePwUpdate(Member loginMember, String newPw) {
+
+		// 비밀번호 암호화 (Bcrypt) 후 다시 loginMember 세팅
+		String encPw = bcrypt.encode(newPw);		
+		loginMember.setMemberPw(encPw);
+		
+		return dao.changePwUpdate(loginMember);
+	}
+
+	// 회원 탈퇴
+	@Override
+	public int memberDelete(Member loginMember) {
+		
+		return dao.memberDelete(loginMember);
 	}
 	
 	

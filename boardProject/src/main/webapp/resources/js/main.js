@@ -105,12 +105,15 @@ btn2.addEventListener("click", () => {
     //          그 반대의 경우에 사용한다.
 
     // POST 방식 
+    let obj = {};
+    obj.email = inputEmail.value;
+    
     fetch("/selectMember", { // K:V 형식으로 작성해야 함
         method : "POST",
         headers : {"Content-Type" : "application/json"},
                 // 요청 보내는 자원을 명시
                 // -> js 객체를 json 형식으로 만들어 파라미터로 전달
-        body : JSON.stringify({"email" : inputEmail.value}) // JS객체 형태 : { K : V }
+        body : JSON.stringify(obj) // JS객체 형태 : { K : V }
         
         // 이렇게 보내는 방법도 가능!
         //let obj = {};
