@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
 <link rel="stylesheet" href="/resources/css/main-style.css">
 
@@ -42,11 +43,32 @@
         <!-- 보통은 header안에 작성하나 사이드에 nav가 있는 경우도 있기 때문에 따로 작성해본다! -->
         <nav>
             <ul>
+            	<%--
                 <li><a href="#">공지사항</a></li>
                 <li><a href="#">자유게시판</a></li>
                 <li><a href="#">질문게시판</a></li>
                 <li><a href="#">FAQ</a></li>
                 <li><a href="#">1:1문의</a></li>
+                 --%>
+                 
+                 <%-- interceptor를 이용해서 조회된 boardTypeList를
+                 	application scope에서 얻어와 화면에 출력
+                 --%>
+                  
+                 <%--
+                 [
+                 {BOARD_NAME=공지사항, BOARD_CODE=1},
+                 {BOARD_NAME=자유 게시판, BOARD_CODE=2},
+                 {BOARD_NAME=테스트 게시판, BOARD_CODE=3},
+                 {BOARD_NAME=질문 게시판, BOARD_CODE=4},
+                 {BOARD_NAME=점심 게시판, BOARD_CODE=5}
+                 ]
+                  --%>
+                 <c:forEach var="boardType" items="${boardTypeList}">
+                 	<li>
+                 		<a href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+                 	</li>
+                 </c:forEach> 
             </ul>
         </nav>
         
