@@ -9,9 +9,9 @@
 </head>
 <body style="align:center;">
 
-<h1><a href="/travleArea/detail?area=SE">서울</a></h1><br>
-<h1><a href="/travleArea/detail?area=GW">강원</a></h1><br>
-<h1><a href="/travleArea/Notice/notice">공지사항</a></h1>
+	<h1><a href="/travleArea/detail?area=SE">서울</a></h1><br>
+	<h1><a href="/travleArea/detail?area=GW">강원</a></h1><br>
+	<h1><a href="/travleArea/Notice/notice">공지사항</a></h1>
 	
 </body>
 </html>
