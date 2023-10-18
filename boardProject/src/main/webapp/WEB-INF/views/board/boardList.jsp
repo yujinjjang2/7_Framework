@@ -65,7 +65,7 @@
 			                            
 			                            	<%-- 썸네일이 있을 경우 --%>
 			                            	<c:if test="${not empty board.thumbnail}">
-			                                <img class="list-thumbnail" src="${board.thumbnail}">
+			                                	<img class="list-thumbnail" src="${board.thumbnail}">
 											</c:if>
 			
 											<%-- ${boardCode} : @Pathvariable 로 request scope에 추가된 값 --%>

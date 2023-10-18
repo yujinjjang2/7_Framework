@@ -1,6 +1,4 @@
 INDEX VERSION 1.131
-C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\548601471.index
-\LAGC_project\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1267764227.index
 \boardProject\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2741723169.index
@@ -9,27 +7,13 @@ C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\5
 \lagcProject\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4123014063.index
 \boardProject\src\main\java
-C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3048895574.index
-\LAGC_project\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\26242640.index
 \lagcProject\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3395945929.index
 \boardProject\src\main\java
-C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\584475624.index
-\LAGC_project\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2218809597.index
 \lagcProject\src\main\java
-C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\641169144.index
-\LAGC_project\src\main\java
-C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2371079148.index
-\LAGC_project\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\345301044.index
 \boardProject\src\main\java
-C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4282210185.index
-\LAGC_project\src\main\java
-C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2705881013.index
-\LAGC_project\src\main\java
-C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\6349354.index
-\LAGC_project\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3734505002.index
 \boardProject\src\main\java

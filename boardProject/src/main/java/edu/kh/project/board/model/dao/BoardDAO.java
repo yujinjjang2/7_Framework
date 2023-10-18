@@ -58,4 +58,13 @@ public class BoardDAO {
 		return sqlSession.selectList("boardMapper.selectBoardList", boardCode, rowBounds);
 	}
 
+
+	/** 게시글 상세 조회
+	 * @param map
+	 * @return board
+	 */
+	public Board selectBoard(Map<String, Object> map) {
+		return sqlSession.selectOne("boardMapper.selectBoard", map);
+	}
+
 }
