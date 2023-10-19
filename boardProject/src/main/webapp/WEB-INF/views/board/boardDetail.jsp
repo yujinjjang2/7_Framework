@@ -55,9 +55,15 @@
                     <!-- 좋아요 하트 -->
                     <span class="like-area">
                     
-                        <i class="fa-regular fa-heart" id="boardLike"></i>
-                        <%-- <i class="fa-solid fa-heart" id="boardLike"></i> --%>
-
+                    	<%-- 좋아요 누른적이 없다, 로그인 하지 않았다 --%>
+                    	<c:if test="${empty likeCheck}">
+                        	<i class="fa-regular fa-heart" id="boardLike"></i>
+						</c:if>
+						
+						<%-- 좋아요 누른적이 있다 --%>
+						<c:if test="${not empty likeCheck}">
+                        	<i class="fa-solid fa-heart" id="boardLike"></i>
+                        </c:if>
 
 
                         <span>${board.likeCount}</span>
@@ -165,6 +171,22 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-
+	<script>
+		// JSP에서 작성 가능한 언어/라이브러리
+		// -> html, css, js, java, EL, JSTL
+		
+		// JSP 해석 우선 순위 : Java/EL/JSTL > HTML,CSS,JS
+		
+		const boardNo = "${board.boardNo}"
+		
+		const loginMemberNo = "${loginMember.memberNo}"
+	
+		console.log(boardNo);
+		console.log(loginMemberNo);
+	
+	</script>
+	
+	<script src="/resources/js/board/boardDetail.js"></script>
+	
 </body>
 </html>
