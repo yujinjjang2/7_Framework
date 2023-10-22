@@ -62,7 +62,6 @@ public class MemberController {
 		System.out.println("inputEmail : " + inputEmail);
 		System.out.println("inputPw : " + inputPw);
 		
-		
 		// ******************* redirect 방법! *******************
 		// "redirect:요청주소"
 		

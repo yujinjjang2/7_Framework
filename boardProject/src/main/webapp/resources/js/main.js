@@ -103,7 +103,18 @@ btn2.addEventListener("click", () => {
     //          문자 기반의 표준 포맷이다.
     //          서버에서 클라이언트로 데이터를 전송하여 표현하거나,
     //          그 반대의 경우에 사용한다.
-
+    
+    // GET 방식
+     fetch("/selectMember?email=" + inputEmail.value)
+    .then( resp => resp.json() ) // 응답 객체(자료형 1일때)를 문자열 형식으로 파싱
+    .then( data => {
+        // 데이터 가공
+        console.log(data);
+        result2.innerText = JSON.stringify(data);
+    })
+    .catch( err => console.log(err) );
+    
+    /*
     // POST 방식 
     let obj = {};
     obj.email = inputEmail.value;
@@ -113,6 +124,7 @@ btn2.addEventListener("click", () => {
         headers : {"Content-Type" : "application/json"},
                 // 요청 보내는 자원을 명시
                 // -> js 객체를 json 형식으로 만들어 파라미터로 전달
+        //body : JSON.stringify({"email":inputEmail.value,"pw":inputpw.value}) // JS객체 형태 : { K : V }
         body : JSON.stringify(obj) // JS객체 형태 : { K : V }
         
         // 이렇게 보내는 방법도 가능!
@@ -126,8 +138,10 @@ btn2.addEventListener("click", () => {
                                 // 파싱하는것
     .then(member => {
         console.log(member); // javascript 객체
+        result2.innerText = JSON.stringify(member);
     })
     .catch( err => console.log(err) );
+    */
 
 });
 

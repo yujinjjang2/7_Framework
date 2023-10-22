@@ -65,12 +65,12 @@
                     
                     <div class="myPage-row">
                         <label>이메일</label>
-                        <span>로그인 회원 이메일</span>
+                        <span>${loginMember.memberEmail}</span>
                     </div>
                     
                     <div class="myPage-row">
                         <label>가입일</label>
-                        <span>로그인 회원 가입일</span>
+                        <span>${loginMember.enrollDate}</span>
                     </div>
                     
                 </form>
