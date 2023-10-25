@@ -11,7 +11,7 @@ function selectCommentList(){
 	
 	
     fetch("/comment?boardNo=" + boardNo)
-    .then(response => response.json())
+    .then(resp => resp.json())
     .then(cList => {
         console.log(cList);
 
@@ -145,8 +145,18 @@ addComment.addEventListener("click", e => { // 댓글 등록 버튼이 클릭이
     }
 
     // 3) AJAX를 이용해서 댓글 내용 DB에 저장(INSERT)
-    fetch()
-    .then(response => response.text())
+    const data = {"commentContent" : commentContent.value,
+    			  "memberNo" : loginMemberNo,
+    			  "boardNo" : boardNo
+    				}; // JS객체
+    
+    
+    fetch("/comment", {
+    	method: "POST",
+    	headers: {"Content-Type" : "application/json"},
+    	body : JSON.stringify(data) // JS 객체 -> JSON 파싱 
+    })
+    .then(resp => resp.text())
     .then(result => {
         if(result > 0){ // 등록 성공
             alert("댓글이 등록되었습니다.");
@@ -170,8 +180,8 @@ function deleteComment(commentNo){
 
     if( confirm("정말로 삭제 하시겠습니까?") ){
 
-        fetch()
-        .then()
+        fetch("/comment/delete?commentNo=" + commentNo)
+        .then(resp => resp.text())
         .then(result => {
             if(result > 0){
                 alert("삭제되었습니다");
@@ -292,9 +302,18 @@ function updateComment(commentNo, btn){
 
     // 새로 작성된 댓글 내용 얻어오기
     const commentContent = btn.parentElement.previousElementSibling.value;
+    
+    const data = {
+    			  "commentNo" : commentNo,
+    			  "commentContent" : commentContent
+    				}; // JS객체
 
-    fetch()
-    .then()
+    fetch("/comment/update", {
+    	method: "POST",
+    	headers: {"Content-Type" : "application/json"},
+    	body : JSON.stringify(data) // JS 객체 -> JSON 파싱 
+    })
+    .then(resp => resp.text())
     .then(result => {
         if(result > 0){
             alert("댓글이 수정되었습니다.");
@@ -391,10 +410,17 @@ function insertChildComment(parentNo, btn){
         return;
     }
 
+	 const data = {"commentContent" : commentContent,
+    			  "memberNo" : loginMemberNo,
+    			  "boardNo" : boardNo,
+    			  "parentNo" : parentNo}; // JS객체
 
-
-    fetch()
-    .then()
+   fetch("/comment", {
+    	method: "POST",
+    	headers: {"Content-Type" : "application/json"},
+    	body : JSON.stringify(data) // JS 객체 -> JSON 파싱 
+    })
+    .then(resp => resp.text())
     .then(result => {
         if(result > 0){ // 등록 성공
             alert("답글이 등록되었습니다.");

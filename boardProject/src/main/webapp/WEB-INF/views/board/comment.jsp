@@ -10,6 +10,7 @@
         	<c:forEach items="${board.commentList}" var="comment">
 	            <!-- 부모/자식 댓글 -->             <!-- null이 아닌 0으로 작성해줘야 함. -->
 	            <li class="comment-row <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
+	                
 	                <p class="comment-writer">
 	
 	                    <!-- 프로필 이미지 -->
@@ -34,12 +35,12 @@
 	
 	                <!-- 버튼 영역 -->
 	                <div class="comment-btn-area">
-	                    <button>답글</button>   
+	                    <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>   
 	                        
 	                    <!-- 로그인한 회원과 댓글 작성자가 같은 경우 -->
 	                    <c:if test="${loginMember.memberNo == comment.memberNo}">
-	                    	<button>수정</button>
-	                    	<button>삭제</button>
+	                    	<button onclick="showUpdateComment(${comment.commentNo}, this)">수정</button>
+	                    	<button onclick="deleteComment(${comment.commentNo})">삭제</button>
 	                    </c:if>
 	                    
 	                </div>

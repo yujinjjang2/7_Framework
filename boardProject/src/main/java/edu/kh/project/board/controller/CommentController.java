@@ -1,11 +1,11 @@
 package edu.kh.project.board.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.kh.project.board.model.dto.Comment;
@@ -30,14 +30,26 @@ public class CommentController {
 	}
 	
 	// 댓글 삽입
+	@PostMapping("/comment")
+	public int insert(@RequestBody Comment comment) {
+		// 요청 데이터(JSON)
+		// HttpMessageConverter가 해석 -> Java 객체(comment)에 대입
+		
+		return service.insert(comment);
+		
+	}
 	
-	
-	
+
 	// 댓글 삭제
-	
-	
+	@GetMapping("/comment/delete")
+	public int delete(int commentNo) {
+		return service.delete(commentNo);
+	}
 	
 	// 댓글 수정
-	
+	@PostMapping("/comment/update")
+	public int update(@RequestBody Comment comment) {
+		return service.update(comment);
+	}
 	
 }
