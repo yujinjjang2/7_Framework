@@ -9,6 +9,8 @@ C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4
 \boardProject\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\26242640.index
 \lagcProject\src\main\java
+C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4220566120.index
+\boardProject\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3395945929.index
 \boardProject\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2218809597.index
