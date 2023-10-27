@@ -86,24 +86,32 @@ public class BoardController {
 									   // @PathVariable : 주소를 값 자체로 쓸 수 있는 것
 	public String selectBoardList( @PathVariable("boardCode") int boardCode,
 								@RequestParam(value="cp", required = false, defaultValue = "1") int cp,
-								Model model // 데이터 전달용 객체
+								Model model, // 데이터 전달용 객체
+								@RequestParam Map<String, Object> paramMap // 파라미터 전부 다 담겨있음(검색 시)  // {"key":"t", "query":"test"}
 							) {
 		
 		// boardCode 확인
 		//System.out.println("boardCode : " + boardCode);
 		
-		
-		// 게시글 목록 조회 서비스 호출
-		Map<String, Object> map = service.selectBoardList(boardCode, cp);
-		
-		// 조회 결과를 request scope에 세팅 후 forward
-		model.addAttribute("map", map);
-		
+		if( paramMap.get("key") == null ) { // 검색어가 없을 때 (검색 X)
+			
+			// 게시글 목록 조회 서비스 호출
+			Map<String, Object> map = service.selectBoardList(boardCode, cp);
+			
+			// 조회 결과를 request scope에 세팅 후 forward
+			model.addAttribute("map", map);
+			
+		} else { // 검색어가 있을 때 (검색 O)
+			
+			paramMap.put("boardCode", boardCode); // paramMap = key, query, boardCode
+			
+			Map<String, Object> map = service.selectBoardList(paramMap, cp); // 오버로딩 적용
+			
+			model.addAttribute("map", map);
+		}
 		
 		return "board/boardList";
 	}
-	
-	
 	
 	
 	// @PathVariable : 주소에 지정된 부분을 변수에 저장
