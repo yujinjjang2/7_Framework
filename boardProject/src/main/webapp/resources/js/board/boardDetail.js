@@ -62,7 +62,6 @@ boardLike.addEventListener("click", e => {
 
 // 게시글 수정 버튼 클릭 시
 document.getElementById("updateBtn").addEventListener("click", () => {
-	
 	location.href
 		= location.pathname.replace("board", "board2")
 			+ "/update"

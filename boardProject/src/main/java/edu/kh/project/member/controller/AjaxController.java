@@ -38,16 +38,16 @@ public class AjaxController {
 	
 	// ** 이메일로 회원정보 조회
 	
-	@GetMapping("/selectMember")
+	@PostMapping("/selectMember")
 	@ResponseBody // 비동기 요청한곳으로 응답 + Java데이터 JSON, TEXT로 변환
-	public Member selectMember(String email) {
+	public Member selectMember(@RequestBody Map<String, Object> paramMap) {
 		
 		// @RequestBody Map<String, Object> paramMap
 		// -> 요청된 HTTP Body에 담긴 모든 데이터를 자바 객체인 Map으로 반환
 		
 		//System.out.println("paramMap:" + paramMap); // {email = user01@test...}
 		
-		//String email = (String) paramMap.get("email"); // user01@test...
+		String email = (String) paramMap.get("email"); // user01@test...
 		
 		return service.selectMember(email);
 	}

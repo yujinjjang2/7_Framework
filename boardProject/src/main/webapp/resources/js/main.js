@@ -105,16 +105,15 @@ btn2.addEventListener("click", () => {
     //          그 반대의 경우에 사용한다.
     
     // GET 방식
-     fetch("/selectMember?email=" + inputEmail.value)
+    /* fetch("/selectMember?email=" + inputEmail.value)
     .then( resp => resp.json() ) // 응답 객체(자료형 1일때)를 문자열 형식으로 파싱
     .then( data => {
         // 데이터 가공
         console.log(data);
         result2.innerText = JSON.stringify(data);
     })
-    .catch( err => console.log(err) );
+    .catch( err => console.log(err) ); */
     
-    /*
     // POST 방식 
     let obj = {};
     obj.email = inputEmail.value;
@@ -141,7 +140,7 @@ btn2.addEventListener("click", () => {
         result2.innerText = JSON.stringify(member);
     })
     .catch( err => console.log(err) );
-    */
+    
 
 });
 
