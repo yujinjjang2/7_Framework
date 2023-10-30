@@ -72,7 +72,7 @@
 			 <property name="maxUploadSize" value="104857600"/>
 			 <property name="maxUploadSizePerFile" value="104857600"/>
 			 <property name="maxInMemorySize" value="104857600"/>
-		</bean>
+	</bean>
 	<!-- 
 		104857600 byte == 100MB
 		
