@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="userMapper">
+
+	<resultMap type="User" id="user_rm">
+	
+	<!-- property가 java, column이 db라고 생각하면 됨. -->
+	
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="userNo" column="USER_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="userId" column="USER_ID" />
+		<result property="userName" column="USER_NAME" />
+		<result property="userAge" column="USER_AGE" />
+	</resultMap>
+	
+	<select id="selectUserInfo" parameterType="String" resultMap="user_rm">
+		SELECT USER_NO, USER_ID, USER_NAME, USER_AGE
+		FROM TB_USER 
+		WHERE USER_ID = #{id}
+	</select>		
+
+</mapper>

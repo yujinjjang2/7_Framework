@@ -23,6 +23,8 @@
 		
 		<typeAlias type="edu.kh.project.chatting.model.dto.ChattingRoom" alias="ChattingRoom"/>
 		<typeAlias type="edu.kh.project.chatting.model.dto.Message" alias="Message"/>
+		
+		<typeAlias type="com.kh.test.user.model.vo.User" alias="User"/>
 	</typeAliases>
 	
 	
@@ -41,6 +43,8 @@
 		 -->
 		 
 		<mapper resource="/mappers/chatting-mapper.xml"/>
+		
+		<mapper resource="/mappers/user-mapper.xml"/>
 	</mappers>
 
 

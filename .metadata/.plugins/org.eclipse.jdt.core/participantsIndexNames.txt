@@ -1,4 +1,6 @@
 INDEX VERSION 1.131
+C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1040642209.index
+\boardProject\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1267764227.index
 \boardProject\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2741723169.index
@@ -6,6 +8,8 @@ C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\543591019.index
 \lagcProject\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4123014063.index
+\boardProject\src\main\java
+C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2906625539.index
 \boardProject\src\main\java
 C:\workspace\7_Framework\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\26242640.index
 \lagcProject\src\main\java
