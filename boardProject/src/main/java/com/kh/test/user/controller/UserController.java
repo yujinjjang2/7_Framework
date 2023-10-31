@@ -18,7 +18,8 @@ public class UserController {
 	
 	@PostMapping("/UserInfo")
 	public String selectUserInfo(String id, Model model) {
-		
+
+		System.out.println(id);
 		User user = service.selectUserInfo(id);
 		
 		System.out.println(user);
