@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
-	<!-- Appenders -->
+	<!-- Appenders : 끝에 붙이겠다는 의미 -->
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<param name="Target" value="System.out" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n" /> <!-- 로깅시간 및 로그 레벨, 메세지 나타내는 것 -->
+		</layout>
+	</appender>
+
+	
+	<!-- //날짜별 로그 파일 생성 하기 -->
+	<appender name="dailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender"> <!-- 날마다 로그 파일을 하나씩 만드는 것 -->
+	    <param name="File" value="/logs/runtime.log" /> <!-- 파일 만들지 않아도 logs 파일 자동 생성해줌 -->
+	    <param name="Append" value="true" />
+	    <param name="encoding" value="UTF-8" />
+	    <param name="DatePattern" value="'.'yyyy-MM-dd" />
+	    <layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%p] %m%n" />
 		</layout>
 	</appender>
 	
+	
+	<!-- log level 
+		trace -> debug -> info -> warn -> error -> fatal
+	
+		- trace : 추적
+		- debug : 어느 시점에 무슨 값이 들어있는지 찍기 위한 용도
+		- info : ex.어떤 시점에 어떤 controller가 잘 돌고 있는지
+		- warn : 경고: 추후에 문제 생길 수 있음
+		- error : 정상 작동 X > 우리가 다룰 수 있는 범위
+		- fatal : 치명적인, 심각한 ERROR, 프로그램적으로 할 수 없는 것
+		
+	-->
+	
+	
 	<!-- Application Loggers -->
 	<logger name="edu.kh.project">
-		<level value="info" />
+		<level value="debug" />
+		<appender-ref ref="dailyRollingFile"/>
 	</logger>
 	
-	<!-- 3rdparty Loggers -->
+	<!-- 3rdparty Loggers : 부가적인 log들 -->
 	<logger name="org.springframework.core">
 		<level value="info" />
 	</logger>
@@ -34,7 +61,7 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<priority value="debug" />
 		<appender-ref ref="console" />
 	</root>
 	
