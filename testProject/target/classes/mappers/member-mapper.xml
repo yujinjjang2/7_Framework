@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="memberMapper">
+	
+	<resultMap type="Member" id="member_rm">
+	
+	<!-- property가 java, column이 db라고 생각하면 됨. -->
+	
+		<!-- DB의 기본 키(복합키면 여러 개 작성) -->
+		<id property="memberNo" column="MEMBER_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="memberEmail" column="MEMBER_EMAIL" />
+		<result property="memberPw" column="MEMBER_PW" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="memberTel" column="MEMBER_TEL" />
+		
+		<result property="memberAddress" column="MEMBER_ADDR" />
+		
+		<result property="profileImage" column="PROFILE_IMG" />
+		<result property="enrollDate" column="ENROLL_DATE" />
+		<result property="memberDeleteFlag" column="MEMBER_DEL_FL" />
+		<result property="authority" column="AUTHORITY" />
+	</resultMap>
+	
+	<select id="login" parameterType="Member" resultMap="member_rm">
+  		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_PW,
+			MEMBER_TEL, MEMBER_ADDR, PROFILE_IMG, AUTHORITY,
+			TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') AS ENROLL_DATE 
+		FROM "MEMBER"
+		WHERE MEMBER_DEL_FL = 'N'
+		AND MEMBER_EMAIL = #{memberEmail}
+		<!-- AND MEMBER_PW = #{memberPw} -->
+  	</select>
+  	
+  	<select id="selectMemberTel" resultType="string">
+  		SELECT MEMBER_TEL FROM "MEMBER"
+		WHERE MEMBER_NICKNAME = #{nickname}
+		AND MEMBER_DEL_FL = 'N'
+  	</select>
+	
+</mapper>
